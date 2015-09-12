@@ -3,7 +3,7 @@ var app = express();
 var morgan = require('morgan');
 var path = require('path');
 var cors = require('cors');
-var bodyParser = require('bodyParser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/foursquare-api');
 
@@ -12,8 +12,9 @@ app.use(morgan('dev'));
 app.use (bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var routes = require('./config/routes')
+var routes  = require('./api/config/routes');
 
-app.use('routes');
+
+app.use(routes);
 
 app.listen(3000)
