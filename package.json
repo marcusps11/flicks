@@ -1,0 +1,27 @@
+{
+  "name": "flicks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusps11/flicks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcusps11/flicks/issues"
+  },
+  "homepage": "https://github.com/marcusps11/flicks#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.6",
+    "morgan": "^1.6.1",
+    "node-foursquare": "^0.3.0"
+  }
+}
