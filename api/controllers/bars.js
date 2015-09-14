@@ -4,6 +4,3 @@ var Bar = require('../models/Bar');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override')
 
-var getBars = function(req,res){
-  
-}

@@ -6,48 +6,21 @@ var request = require('request');
 var querystring = require('querystring');  
 var _ = require('lodash');
 
-// var base_url = 'http://api.yelp.com/v2/';
 
-// var yelpConsumerKey = 'E_qfI8z3LgVcQCRVJ8Yq_w';
-// var yelpConsumerSecret ='737p70Zg5Z6k5FDLqxWmQO01F6o';
-// var yelpToken = 'GDIOhdTkiGXmgtOqx1e-A2eDwAZM35lb';
-// var yelpTokenSecret = 'UzMtmyGZxiJ4nMvAgMxsuwZW62Y';
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        alert("Geolocation is not supported by this browser.");
+    }
+}
 
-
-// // Function for the yelp search callbac
-
-// module.exports.search(params, callback){
-//   var httpMethod = 'Get'
-//   var url = base_url + 'search'
-
-//   requestYelp(httpMethod, url, params, callback)
-// };
-
-// function requestYelp(method, apiUrl, params, callback){
-//   var required_params = {
-//    oauth_consumer_key : yelpConsumerKey,
-//    oauth_token : yelpToken,
-//    oauth_nonce : nonce(),
-//    oauth_timestamp : nonce().toString().substr(0,10),
-//    oauth_signature_method : 'HMAC-SHA1',
-//    oauth_version : '1.0'
-//  };
-
-//  var parameters = _.assign(params, required_params);
-//  var consumerSecret = yelpConsumerSecret;
-//  var tokenSecret = yelpTokenSecret;
-//  var signature = oauthSignature.generate(method, apiUrl, parameters, consumerSecret, tokenSecret, { encodeSignature: false});
-
-//  parameters.oauth_signature = signature;
-
-//  var paramURL = qs.stringify(parameters);
-//  var apiURL = apiUrl + '?' + paramURL;
-
-//  request(apiURL, function(error, response, body){
-//   return callback(error, response,body)
-//  })
-
-// } 
+function showPosition(position) {
+    var lat = (position.coords.latitude)
+    var lng = (position.coords.longitude)
+    console.log(lat) 
+    console.log(lng);  
+}
 
 var requestYelp = function(req, res) {
 
@@ -59,7 +32,6 @@ var requestYelp = function(req, res) {
 
   /* We can setup default parameters here */
   var default_parameters = {
-    location: 'London',
     sort: '2'
   };
 
@@ -72,8 +44,11 @@ var requestYelp = function(req, res) {
   console.log(consumerSecret, tokenSecret, consumerKey, token)
 
   var set_parameters = {
-    term: req.query.term
+    term: req.query.term,
+    location: req.query.location
   }
+
+  console.log(set_parameters)
 
   /* We set the require parameters here */
   var required_parameters = {
