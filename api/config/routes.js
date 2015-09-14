@@ -13,6 +13,11 @@ var yelpController = require('../controllers/yelp');
 router.route('/:search')
 .get(yelpController.requestYelp)
 
+router.route('/users')
+  .get(usersController.indexUsers)
+  .post(usersController.createUser)
+
+
 // router.route('/')
 
 module.exports = router

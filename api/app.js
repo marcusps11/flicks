@@ -5,7 +5,7 @@ var path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/foursquare-api');
+mongoose.connect('mongodb://localhost:27017/yelp-api');
 
 app.use(cors());
 app.use(morgan('dev'));
