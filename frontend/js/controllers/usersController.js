@@ -10,5 +10,7 @@ function UserController(){
   self.join = function() {
     User.join(self.user);
   }
+
+  
 }
 
