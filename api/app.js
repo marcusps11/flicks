@@ -5,7 +5,12 @@ var path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var passport = require('passport');
+
 mongoose.connect('mongodb://localhost:27017/yelp-api');
+
+require('./config/passport')(passport);
+
 
 app.use(cors());
 app.use(morgan('dev'));

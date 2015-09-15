@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/marcusps11/flicks#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "cors": "^2.7.1",
     "express": "^4.13.3",
+    "jsonwebtoken": "^5.0.5",
     "lodash": "^3.10.1",
     "method-override": "^2.3.4",
     "mongoose": "^4.1.6",
@@ -28,6 +31,8 @@
     "node-foursquare": "^0.3.0",
     "nonce": "^1.0.3",
     "oauth-signature": "^1.3.0",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
     "request": "^2.61.0",
     "yelp": "^0.2.0"
   }
