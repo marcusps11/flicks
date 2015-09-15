@@ -1,22 +1,25 @@
 angular
 .module('YelpsApp')
-.controller('UsersController' UserController)
+.controller('UsersController', UsersController);
 
 UsersController.$inject = ['User', 'CurrentUser']
-function UserController(User, CurrentUser){
+
+function UsersController(User, CurrentUser){
   var self = this;
+  
+  }
 
   init()
 
   function init(){
-    self.currentUser = CurrentUser.check();
+    self.CurrentUser = CurrentUser.check();
 
-    if (self.currentUser){
+    if (self.CurrentUser){
       getUsers()
     }else {
       self.all = [];
-      self.agent = {};
-    }
+      self.user = {};
+      
   }
 
   function getUsers(){
@@ -26,7 +29,7 @@ function UserController(User, CurrentUser){
     )}
 
   function login(response){
-    self.currentUser = CurrentUser.login(response.token)
+    self.CurrentUser = CurrentUser.login(response.token)
     init()
   } 
 
@@ -36,12 +39,14 @@ function UserController(User, CurrentUser){
   }
 
   self.authorize = function(){
-    user.authorize(self.user,login)
+    user.authorize(self.user,showMessage)
   }
 
-  self.join = function(){
-    user.join(self.user, login)
-  }    
+  self.signup = function(){
+    user.signup(self.user, showMessage)
+  }
+
+  return self    
 
   }
 

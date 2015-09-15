@@ -2,8 +2,8 @@ angular
 .module('YelpsApp')
 .factory('User', User);
 
-User.$inject = ['$resource', 'API'];
-function User($resource, API) {
+User.$inject = ['$resource'];
+function User($resource) {
   var url = 'http://localhost:3000/api'
 
   return $resource(
@@ -15,7 +15,7 @@ function User($resource, API) {
       'remove':    { method: 'DELETE' },
       'delete':    { method: 'DELETE' },
       'authorize':   { url: url + '/authorize', method: 'POST'},
-      'join': { url: url + '/join', method: 'POST'}
+      'signup': { url: url + '/signup', method: 'POST'}
     }
     );
   }

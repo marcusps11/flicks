@@ -2,8 +2,8 @@ angular
 .module('YelpsApp')
 .factory('CurrentUser', CurrentUser);
 
-CurrentUser.$inject = ['$window', 'jwtHelper']
-function CurrentUser($window, jwtHelper){
+CurrentUser.$inject = ['$window', 'jwthelper']
+function CurrentUser($window, jwthelper){
 
   function check(){
     var token = $window.localStorage.getItem('token', token)
