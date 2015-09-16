@@ -1,4 +1,6 @@
-module.controller('UsersController', UsersController);
+angular
+  .module('YelpsApp')
+.controller('UsersController', UsersController)
 
 UsersController.$inject = ['User','TokenService', '$state'];
 
@@ -21,14 +23,15 @@ function UsersController(User, TokenService, $state){
   }
 
   self.login = function(res){
-    User.login(self.user, showMessage);
-    $state.go('categories')
+    User.login(self.user, showMessage)
+    $state.go('search');
   } 
 
 
-  self.logout= function(){
+  self.logout = function(){
+    console.log('lllllllllllllll')
     TokenService.removeToken && TokenService.removeToken();
-    $state.go('home')
+    $state.go('home');
   }
 
   self.signup = function(){
@@ -36,9 +39,9 @@ function UsersController(User, TokenService, $state){
   }
 
   self.isLoggedIn = function() {
+    console.log('I am logged in')
     return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
   }
-
 
   return self 
 

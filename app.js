@@ -42,7 +42,7 @@ app.use(function (error, request, response, next) {
     response.status(401).json({message: 'You need an authorization token to view this.'});
   }
 });
-
+app.use(express.static(__dirname + '/public'));
 // Require routes
 var routes  = require('./config/routes');
 

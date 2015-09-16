@@ -1,37 +1,38 @@
-module
-.service('TokenService', TokenService);
+angular
+  .module('YelpsApp')
+  .service('TokenService', TokenService)
 
-TokenService.$inject = ['$window', 'jwtHelper']
-function TokenService($window, $jwthelper){
+TokenService.$inject = ['$window' , 'jwtHelper']
+function TokenService($window, jwtHelper) {
 
   var self = this;
 
-  self.parseJwt = function(token) {
+  self.parseJwt = function() {
+    var token = self.getToken();
     return jwtHelper.decodeToken(token);
   }
 
-  self.saveToken = function(token){
-    $window.localStorage['ifuckinghatetokens'] = token
+  self.saveToken = function(token) {
+    $window.localStorage['secret'] = token;
   }
 
-  self.getToken = function(){
-    return $window.localStorage['ifuckinghatetokens'];
+  self.getToken = function() {
+    return $window.localStorage['secret'];
   }
 
   self.removeToken = function() {
-    console.log('am I gettting this')
-    $window.localStorage.removeItem('ifuckinghatetokens');
+    $window.localStorage.removeItem('secret');
   }
 
   self.isLoggedIn = function() {
-   var token = self.getToken();
+    console.log('I am logged in')
+    var token = self.getToken();
 
-   if (token) {
-     return true;
-   } else {
-     return false;
-   }
- }
-
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

@@ -1,15 +1,19 @@
-<div ng-controller='UsersController as users'>
-<form id="signup"  ng-submit="users.signup()" ng-hide="users.isLoggedIn()">
-  <label for="full_name">full_name</label>
-  <input type="text" name="full_name" placeholder="full_name" ng-model="users.user.full_name">
+<div class='row'>
+  <div ng-controller='UsersController as users' class="col-md-6 col-md-offset-3">
+    <form id="signup"  ng-submit="users.signup()">
+      <div class='form-group'>
+        <label for="full_name">Name</label>
+        <input type="text" name="full_name" class='form-control' placeholder="full_name" ng-model="users.user.full_name">
 
-  <label for="email">email</label>
-  <input type="email" name="email" placeholder="email" ng-model="users.user.email">
+        <label for="email">email</label>
+        <input type="email" name="email" class='form-control' placeholder="email" ng-model="users.user.email">
 
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
+        <label for="password">Password</label>
+        <input type="password" name="password" class='form-control' placeholder="Password" ng-model="users.user.password">
 
-  <input type="submit" value="signup">
-</form>
+        <input type="submit" value="signup" class="btn btn-default">
+      </form>
+    </div>
+  </div>
 </div>
 

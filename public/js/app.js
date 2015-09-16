@@ -1,7 +1,7 @@
-var module = angular
+angular
 .module('YelpsApp', ['ngResource', 'angular-jwt','ui.router'])
 .constant('API', 'http://localhost:3000/api') 
-.config(YelpsInit);
+.config(YelpsInit)
 
 YelpsInit.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider'];
 function YelpsInit($httpProvider, $stateProvider, $urlRouterProvider){
@@ -28,6 +28,14 @@ function MainRouter($stateProvider, $urlRouterProvider){
   .state('logout',{
     url:'/logout',
     templateUrl: '../public/templates/homepage/logout.html'
+  })
+  .state('search',{
+    url:'/search',
+    templateUrl: '../public/templates/homepage/search.html'
+  })
+  .state('results',{
+    url:'/results',
+    templateUrl: '../public/templates/homepage/results.html'
   })
   ;
   

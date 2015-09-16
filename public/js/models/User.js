@@ -1,4 +1,6 @@
-module.factory('User', User);
+angular
+  .module('YelpsApp')
+  .factory('User', User);
 
 User.$inject = ['$resource'];
 function User($resource) {
