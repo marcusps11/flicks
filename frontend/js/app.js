@@ -1,8 +1,26 @@
-angular.module('YelpsApp', ['ngResource' ,'angular-jwt']);
+var module = angular.module('YelpsApp', ['ngResource', 'angular-jwt','ui.router'])
+.constant('API', 'http://localhost:3000/api') 
+.config(MainRouter, function($httpProvider){
+  $httpProvider.interceptors.push("AuthInterceptor"); 
+})
 
-angular
-  .module('YelpsApp')
-  .run(function($http, $window){
-    var token = $window.localStorage.getItem('token')
-    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+function MainRouter($stateProvider, $urlRouterProvider){
+  $stateProvider
+  .state('signup',{
+    url: '/signup',
+    templateUrl: '../public/templates/homepage/signup.html'
   })
+  .state('login',{
+    url:'/login',
+    templateUrl: '../public/templates/homepage/login.html'
+  })
+  .state('homepage',{
+    url:'/yelp',
+    templateUrl: '../public/templates/homepage/home.html'
+  });
+  
+  $urlRouterProvider.otherwise('/');
+}
+

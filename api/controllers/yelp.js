@@ -7,21 +7,6 @@ var querystring = require('querystring');
 var _ = require('lodash');
 
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        alert("Geolocation is not supported by this browser.");
-    }
-}
-
-function showPosition(position) {
-    var lat = (position.coords.latitude)
-    var lng = (position.coords.longitude)
-    console.log(lat) 
-    console.log(lng);  
-}
-
 var requestYelp = function(req, res) {
 
   /* The type of request */

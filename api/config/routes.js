@@ -12,8 +12,8 @@ var authenticationController = require('../controllers/authenticationController'
 // router.route('/bars')
 // .get(BarsController.getBars)
 
-// router.route('/:search')
-// .get(yelpController.requestYelp)
+router.route('/:search')
+.get(yelpController.requestYelp)
 
 router.route('/users')
 .get(usersController.indexUsers)

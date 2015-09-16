@@ -1,52 +1,43 @@
-angular
-.module('YelpsApp')
-.controller('UsersController', UsersController);
+module.controller('UsersController', UsersController);
 
-UsersController.$inject = ['User', 'CurrentUser']
+UsersController.$inject = ['User','TokenService', 'CurrentUser'];
 
-function UsersController(User, CurrentUser){
+function UsersController(User, TokenService, CurrentUser){
   var self = this;
-  
-  }
 
-  init()
+  self.all = [];
+  self.user = {};
 
-  function init(){
+  function showMessage(res){
     self.CurrentUser = CurrentUser.check();
+    var token = res.token ? res.token : null;
 
-    if (self.CurrentUser){
-      getUsers()
-    }else {
-      self.all = [];
-      self.user = {};
-      
+    if(token) { console.log(res); }
+    self.message =  res.message ? res.message : null;
   }
 
-  function getUsers(){
-    User.query(function(response){
-      self.all = response;
-    }
-    )}
+  self.getUsers = function(){ 
+    self.all = User.query();
+  }
 
-  function login(response){
-    self.CurrentUser = CurrentUser.login(response.token)
-    init()
+  self.login = function(res){
+    User.login(self.user, showMessage);
   } 
 
-  function logout(){
-    CurrentUser.logout()
-    init()
-  }
-
-  self.authorize = function(){
-    user.authorize(self.user,showMessage)
+  self.logout= function(){
+    TokenService.removeToken && TokenService.removeToken();
   }
 
   self.signup = function(){
-    user.signup(self.user, showMessage)
+    User.signup(self.user, self.login)
   }
 
-  return self    
-
+  self.isLoggedIn = function() {
+    return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
   }
+
+  return self 
+
+}
+
 

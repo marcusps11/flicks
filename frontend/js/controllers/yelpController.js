@@ -1,5 +1,4 @@
-angular.module('YelpsApp')
-.controller('barsController', BarsController);
+module.controller('barsController', BarsController);
 
 BarsController.$inject = ['$http']
 
@@ -21,6 +20,22 @@ function BarsController($http){
 
   })
  }
+
+ function getLocation() {
+     if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(showPosition);
+     } else { 
+         alert("Geolocation is not supported by this browser.");
+     }
+ }
+
+ function showPosition(position) {
+     var lat = (position.coords.latitude)
+     var lng = (position.coords.longitude)
+     console.log(lat) 
+     console.log(lng);  
+ }
+
 
 
 }

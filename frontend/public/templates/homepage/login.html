@@ -1,0 +1,14 @@
+<div ng-controller='UsersController as users'>
+  <form id="login" ng-submit="users.login()" ng-hide="users.isLoggedIn()">
+    <label for="email">email</label>
+    <input type="text" name="email" placeholder="What is your email?" ng-model="users.user.email">
+    
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="What is your password?" ng-model="users.user.password">
+    
+    <input type="submit" value="login">
+  </form>
+
+</div>
+
+<button ng-click="users.logout()">Logout</button>
