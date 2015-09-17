@@ -14,6 +14,8 @@ function UsersController(User, TokenService, $state){
     // self.CurrentUser = CurrentUser.check();
     var token = res.token ? res.token : null;
 
+    console.log(res)
+
     if(token) { console.log(res); }
     self.message =  res.message ? res.message : null;
   }
@@ -23,13 +25,11 @@ function UsersController(User, TokenService, $state){
   }
 
   self.login = function(res){
+    alert(self.user)
     User.login(self.user, showMessage)
-    $state.go('search');
   } 
 
-
   self.logout = function(){
-    console.log('lllllllllllllll')
     TokenService.removeToken && TokenService.removeToken();
     $state.go('home');
   }
@@ -39,12 +39,13 @@ function UsersController(User, TokenService, $state){
   }
 
   self.isLoggedIn = function() {
-    console.log('I am logged in')
     return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
   }
 
   return self 
 
 }
+
+
 
 

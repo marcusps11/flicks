@@ -152,12 +152,12 @@ body {
   height: 80px;
 }
 
-.actions a.dislike i {
-  background: url("../img/dislike_button.png") no-repeat scroll center center;
-}
+/*.actions a.dislike i {
+  background: url("../img/nope.png") no-repeat scroll center center;
+}*/
 
 .actions a.like i {
-  background: url("../img/like_button.png") no-repeat scroll center center;
+  background: url("../img/liked.png") no-repeat scroll center center / cover;
 }
 
 .actions a {
@@ -220,9 +220,26 @@ body {
 
 
 #tinderslide, #tinderslide li {
-  min-height: 400px;
+  height:500px;
+  min-width: 400px;
+  
+}
+
+.img img {
+  width:100% !important;
 }
 
 #tinderslide .img {
   width: 100%;
+}
+
+a.like {
+
+  background: url("../img/liked.png") no-repeat center center / cover  #6AA834;
+}
+
+a.dislike {
+  
+  background: url("../img/nope.png") no-repeat center center / cover #BF3100;
+
 }

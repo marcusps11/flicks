@@ -42,6 +42,7 @@ app.get("/", function(req, res){
 //     response.status(401).json({message: 'You need an authorization token to view this.'});
 //   }
 // });
+
 app.use(express.static(__dirname + '/public'));
 // Require routes
 var routes  = require('./config/routes');

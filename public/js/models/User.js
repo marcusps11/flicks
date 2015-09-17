@@ -6,7 +6,7 @@ User.$inject = ['$resource'];
 function User($resource) {
   var url = 'http://localhost:3000/api'
 
-return $resource(
+  return $resource(
       url+'/users/:id',
       {id: '@id'},
       { 'get':       { method: 'GET' },

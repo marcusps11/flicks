@@ -2,15 +2,23 @@ angular
 .module('YelpsApp')
 .controller('barsController', BarsController);
 
-BarsController.$inject = ['$http', '$state', '$window', '$scope']
+BarsController.$inject = ['$scope', '$http', '$state', '$stateParams', '$window']
 
-function BarsController($http, $state, $window, $scope){
+function BarsController($scope, $http, $state, $stateParams, $window){
   var self = this;
 
   self.all = [];
   self.newBar = {};
 
+  self.search = function(term, location){
+    console.log("Searching...");
+
+    $state.go("search", { term: term, location: location })
+  }
+
   function setupTinder(){
+    console.log("Setting up tinder...");
+
     angular.element("#tinderslide").jTinder({
       onDislike: function (item) {
         angular.element('#status').html('Dislike image ' + (item.index()+1));
@@ -32,7 +40,7 @@ function BarsController($http, $state, $window, $scope){
   }
 
   self.getBars = function(term, location){
-    console.log(location)
+    console.log(term, location)
 
     $http
     .get("http://localhost:3000/api/&?term="+term+"&location="+location) 
@@ -49,6 +57,8 @@ function BarsController($http, $state, $window, $scope){
       })
     });
   }
+
+  if ($stateParams.term && $stateParams.location) self.getBars($stateParams.term, $stateParams.location);
 
   // Listening to custom directive that fires when ng-repeat has finished
   $scope.$on('ngRepeatFinished', setupTinder);

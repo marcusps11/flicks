@@ -23,7 +23,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
   })
   .state('homepage',{
     url:'/',
-    templateUrl: '../public/templates/homepage/home.html'
+    templateUrl: '../public/templates/homepage/home.html',
   })
   .state('logout',{
     url:'/logout',
@@ -31,7 +31,11 @@ function MainRouter($stateProvider, $urlRouterProvider){
   })
   .state('search',{
     url:'/search',
-    templateUrl: '../public/templates/homepage/search.html'
+    templateUrl: '../public/templates/homepage/search.html',
+    params: {
+      term: null,
+      location: null
+    }
   })
   .state('results',{
     url:'/results',
@@ -40,9 +44,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
   .state('profile',{
     url:'/profile',
     templateUrl: '../public/templates/homepage/results.html'
-  })
-
-  ;
+  });
   
   $urlRouterProvider.otherwise('/');
 }

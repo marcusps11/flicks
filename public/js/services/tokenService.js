@@ -25,7 +25,6 @@ function TokenService($window, jwtHelper) {
   }
 
   self.isLoggedIn = function() {
-    console.log('I am logged in')
     var token = self.getToken();
 
     if (token) {
