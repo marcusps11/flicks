@@ -135,6 +135,34 @@ label{
   }
 }
 
+#logonav {
+  margin-top: 25px:;
+}
 
+.modal-header{
+  background-color: #3C568E
+}
+
+.modal-body {
+  background-color: #F2F2F2
+}
+
+.modal-footer {
+  background-color: #3C568E
+}
+
+h4.modal-title {
+  color:white;
+}
+
+label{
+  color:black;
+  padding:5px;
+}
+
+#small {
+  color:white;
+  font-size:30px;
+}
 
 

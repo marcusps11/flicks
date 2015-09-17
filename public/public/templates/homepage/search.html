@@ -7,7 +7,7 @@
         <ul>
           <li ng-repeat='bar in bars.all' class="pane{{$index}}" on-finish-render>
             <div class="img"><img ng-src="{{bar.image_url}}"></div>
-            <div>{{bar.name}}{{bar.rating}}</div>
+            <div>{{bar.name}} - {{bar.rating}} / 5</div>
             <div class="like"></div>
             <div class="dislike"></div>
           </li>
