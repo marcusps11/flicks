@@ -188,7 +188,7 @@ body {
 }
 
 /* jTinder images */
-#tinderslide .pane5 .img {
+/*#tinderslide .pane5 .img {
   background: url({{bar.image_url}}) no-repeat scroll center center;
   background-size: cover;
 }
@@ -207,7 +207,7 @@ body {
 #tinderslide .pane1 .img {
   background: url("../img/pane/pane1.jpg") no-repeat scroll center center;
   background-size: cover;
-}
+}*/
 
 /* jTinder status text */
 #status {
@@ -219,6 +219,10 @@ body {
 }
 
 
-#tinderslide li {
+#tinderslide, #tinderslide li {
   min-height: 400px;
+}
+
+#tinderslide .img {
+  width: 100%;
 }

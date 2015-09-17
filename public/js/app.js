@@ -22,7 +22,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
     templateUrl: '../public/templates/homepage/login.html'
   })
   .state('homepage',{
-    url:'/yelp',
+    url:'/',
     templateUrl: '../public/templates/homepage/home.html'
   })
   .state('logout',{
@@ -37,6 +37,11 @@ function MainRouter($stateProvider, $urlRouterProvider){
     url:'/results',
     templateUrl: '../public/templates/homepage/results.html'
   })
+  .state('profile',{
+    url:'/profile',
+    templateUrl: '../public/templates/homepage/results.html'
+  })
+
   ;
   
   $urlRouterProvider.otherwise('/');
