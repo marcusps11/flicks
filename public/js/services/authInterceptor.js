@@ -2,13 +2,13 @@ angular
 .module('YelpsApp')
 .factory('AuthInterceptor', AuthInterceptor)
 
-AuthInterceptor.$inject = ["API", "TokenService"];
+AuthInterceptor.$inject = ["API", "TokenService"]
 function AuthInterceptor(API, TokenService) {
 
   return {
     request: function(config) {
-      var token = TokenService.getToken();
-    
+      var token = TokenService.getToken();  
+      console.log(token)  
       if (config.url.indexOf(API) === 0 && token) {
         config.headers.Authorization = 'Bearer ' + token;
       }
@@ -25,3 +25,6 @@ function AuthInterceptor(API, TokenService) {
   }
 }
 
+
+
+  

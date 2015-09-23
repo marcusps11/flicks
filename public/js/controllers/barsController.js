@@ -62,4 +62,5 @@ function BarsController($scope, $http, $state, $stateParams, $window){
 
   // Listening to custom directive that fires when ng-repeat has finished
   $scope.$on('ngRepeatFinished', setupTinder);
+
 }

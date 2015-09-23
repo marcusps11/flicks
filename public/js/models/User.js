@@ -2,8 +2,8 @@ angular
   .module('YelpsApp')
   .factory('User', User);
 
-User.$inject = ['$resource'];
-function User($resource) {
+User.$inject = ['$resource', 'API'];
+function User($resource, API) {
   var url = 'http://localhost:3000/api'
 
   return $resource(
@@ -19,3 +19,5 @@ function User($resource) {
     }
     );
   }
+
+  

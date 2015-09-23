@@ -3,10 +3,12 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override')
 
-var barsController = require('../controllers/bars');
 var yelpController = require('../controllers/yelp');
 var usersController = require('../controllers/usersController')
 var authenticationController = require('../controllers/authenticationController')
+
+router.post('/login', authenticationController.login);
+router.post('/signup', authenticationController.signup);
 
 
 // router.route('/bars')
@@ -19,11 +21,16 @@ router.route('/users')
 .get(usersController.indexUsers)
 .post(usersController.createUser)
 
-router.route('/login')
-.post(authenticationController.logIn);
+// router.route('/users/:id')
+// .get(usersController.checkUser)
+// .post(usersController.updateUser)
+// .delete(usersController.deleteUser)
 
-router.route('/signup')
-.post(authenticationController.signUp);
+// router.route('/login')
+// .post(authenticationController.login);
+
+// router.route('/signup')
+// .post(authenticationController.signup);
 
 
 // router.route('/')

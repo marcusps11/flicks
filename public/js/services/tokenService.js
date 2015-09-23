@@ -1,6 +1,6 @@
 angular
-  .module('YelpsApp')
-  .service('TokenService', TokenService)
+.module('YelpsApp')
+.service('TokenService', TokenService)
 
 TokenService.$inject = ['$window' , 'jwtHelper']
 function TokenService($window, jwtHelper) {
@@ -18,6 +18,7 @@ function TokenService($window, jwtHelper) {
 
   self.getToken = function() {
     return $window.localStorage['secret'];
+    
   }
 
   self.removeToken = function() {

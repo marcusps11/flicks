@@ -1,51 +1,48 @@
 angular
-  .module('YelpsApp')
-.controller('UsersController', UsersController)
+.module('YelpsApp')
+.controller('UsersController', UsersController);
 
-UsersController.$inject = ['User','TokenService', '$state'];
-
-function UsersController(User, TokenService, $state){
+UsersController.$inject = ['User','TokenService', '$state']
+function UsersController(User, TokenService, $state) {
   var self = this;
 
-  self.all = [];
-  self.user = {};
+  self.all    = [];
+  self.user  = {};
 
-  function showMessage(res){
-    // self.CurrentUser = CurrentUser.check();
+  // Function to display the message back to the User
+  function showMessage(res) {
     var token = res.token ? res.token : null;
-
-    console.log(res)
-
+    
+    // Console.log our response from the API
     if(token) { console.log(res); }
     self.message =  res.message ? res.message : null;
   }
 
-  self.getUsers = function(){ 
-    self.all = User.query();
+  // self.authorize = function() {
+  //   User.authorize(self.user, function(res){
+  //     $state.go("home");
+  //     showMessage(res)
+  //   });
+  // }
+
+  self.login = function() {
+    User.login(self.user, function(res){
+      $state.go("homepage/home");
+      showMessage(res)
+    });
   }
 
-  self.login = function(res){
-    alert(self.user)
-    User.login(self.user, showMessage)
-  } 
-
-  self.logout = function(){
+  self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
-    $state.go('home');
-  }
-
-  self.signup = function(){
-    User.signup(self.user, showMessage)
   }
 
   self.isLoggedIn = function() {
+    console.log('i am logged in')
     return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
   }
 
-  return self 
-
+  return self;
 }
-
 
 
 

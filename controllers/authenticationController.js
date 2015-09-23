@@ -4,7 +4,7 @@ var passport = require('passport');
 var secret = require ('../config/config').secret
 var express = require('express');
 
-function signUp(req, res , next){
+function signup(req, res , next){
   passport.authenticate('local-signup', function(err, user, info){
     if (err) return res.status(500).send(err);
     if (!user) return res.status(401).send({ error: 'User already exists!'});
@@ -19,7 +19,7 @@ function signUp(req, res , next){
   })(req, res, next);
 };
 
-function logIn(req , res , next){
+function login(req , res , next){
   User.findOne({
     email: req.body.email
   }, function(err, user) {
@@ -38,6 +38,6 @@ function logIn(req , res , next){
 };
 
 module.exports = {
-  signUp: signUp,
-  logIn: logIn
+  signup: signup,
+  login: login
 }

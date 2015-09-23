@@ -19,7 +19,7 @@ function autoTyper() {
         phrases: [
         "Beer", 
         "Pizza",
-        "Pussy?" 
+        "A New Junior Dev?" 
         
         ]
       });

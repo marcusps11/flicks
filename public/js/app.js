@@ -15,32 +15,29 @@ function MainRouter($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('signup',{
     url: '/signup',
-    templateUrl: '../public/templates/homepage/signup.html'
+    templateUrl: './templates/homepage/signup.html'
   })
   .state('login',{
     url:'/login',
-    templateUrl: '../public/templates/homepage/login.html'
+    templateUrl: './templates/homepage/login.html'
   })
   .state('homepage',{
     url:'/',
-    templateUrl: '../public/templates/homepage/home.html',
+    templateUrl: './templates/homepage/home.html',
   })
   .state('logout',{
     url:'/logout',
-    templateUrl: '../public/templates/homepage/logout.html'
+    templateUrl: './templates/homepage/logout.html'
   })
   .state('search',{
     url:'/search',
-    templateUrl: '../public/templates/homepage/search.html',
+    templateUrl: './templates/homepage/search.html',
     params: {
       term: null,
       location: null
     }
   })
-  .state('results',{
-    url:'/results',
-    templateUrl: '../public/templates/homepage/results.html'
-  })
+  
   .state('profile',{
     url:'/profile',
     templateUrl: '../public/templates/homepage/results.html'
