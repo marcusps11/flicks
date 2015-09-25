@@ -10,6 +10,8 @@ var passport   = require('passport');
 var config     = require('./config/config');
 
 // Setup Express Middleware
+app.set('port', process.env.PORT || 3000);
+
 app.use(express.static("public"));
 app.use(cors());
 app.use(morgan('dev'));
@@ -17,7 +19,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup mongoose connection
-mongoose.connect('mongodb://localhost:27017/yelp-api');
+
+var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost/yelp-api';
+mongoose.connect(databaseURL); 
+
 
 // Require passport and pass in package
 require('./config/passport')(passport);
@@ -50,4 +55,5 @@ var routes  = require('./config/routes');
 // Prefix API paths
 app.use('/api', routes);
 
-app.listen(3000)
+
+app.listen(process.env.PORT || 3000 )
