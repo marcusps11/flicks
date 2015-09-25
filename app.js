@@ -10,7 +10,8 @@ var passport   = require('passport');
 var config     = require('./config/config');
 
 // Setup Express Middleware
-app.set('port', process.env.PORT || 3000);
+var port = process.env.PORT || 3000; 
+
 
 app.use(express.static("public"));
 app.use(cors());
@@ -56,4 +57,6 @@ var routes  = require('./config/routes');
 app.use('/api', routes);
 
 
-app.listen(process.env.PORT || 3000 )
+app.listen(port, function(){
+  console.log('listening on port 3000')
+});
