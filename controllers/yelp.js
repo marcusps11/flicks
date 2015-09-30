@@ -1,4 +1,3 @@
-var Bar = require('../models/Bar');
 
 var oauthSignature = require('oauth-signature');  
 var nonce = require('nonce')();  
