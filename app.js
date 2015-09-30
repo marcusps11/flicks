@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup mongoose connection
 
-var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost/yelp-api';
+var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost/nextroom';
 mongoose.connect(databaseURL); 
 
 
