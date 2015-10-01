@@ -18,12 +18,12 @@ function UsersController(User, TokenService, $state) {
     self.message =  res.message ? res.message : null;
   }
 
-  // self.authorize = function() {
-  //   User.authorize(self.user, function(res){
-  //     $state.go("home");
-  //     showMessage(res)
-  //   });
-  // }
+  self.signup = function() {
+    User.signup(self.user, function(res){
+      $state.go("home");
+      showMessage(res)
+    });
+  }
 
   self.login = function() {
     User.login(self.user, function(res){
