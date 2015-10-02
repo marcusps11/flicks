@@ -38,7 +38,7 @@ app.get("/", function(req, res){
 });
 
 // JWT access control. Important to have these before our routes!
-// app
+app
   .use('/api', expressJWT({secret: config.secret})
   .unless({path: ['/api/auth/login', '/api/auth/signup']}));
 
