@@ -10,6 +10,7 @@ function signup(req, res , next){
     if (!user) return res.status(401).send({ error: 'User already exists!'});
 
     var token = jwt.sign(user, secret, {expiresInMinutes: 1440});
+    console.log(token)
 
     return res.status(200).send({
       success: true,
