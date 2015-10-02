@@ -40,7 +40,7 @@ app.get("/", function(req, res){
 // JWT access control. Important to have these before our routes!
 app
   .use('/api', expressJWT({secret: config.secret})
-  .unless({path: ['/api/login', '/api/signup'], method: 'post'}));
+  .unless({path: ['/api/auth/login', '/api/auth/signup']}));
 
 // Handle "No authorization token was found" errors
 app.use(function (error, request, response, next) {

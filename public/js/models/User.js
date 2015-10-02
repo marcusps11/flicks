@@ -14,8 +14,8 @@ function User($resource, API) {
       'query':     { method: 'GET', isArray: true},
       'remove':    { method: 'DELETE' },
       'delete':    { method: 'DELETE' },
-      'login':   { url: url + '/login', method: 'POST'},
-      'signup': { url: url + '/signup', method: 'POST'}
+      'login':   { url: url + '/auth/login', method: 'POST'},
+      'signup': { url: url + '/auth/signup', method: 'POST'}
     }
     );
   }
