@@ -7,8 +7,8 @@ var yelpController = require('../controllers/yelp');
 var usersController = require('../controllers/usersController')
 var authenticationController = require('../controllers/authenticationController')
 
-router.post('/login', authenticationController.login);
-router.post('/signup', authenticationController.signup);
+router.post('/auth/login', authenticationController.login);
+router.post('/auth/signup', authenticationController.signup);
 
 
 // router.route('/bars')
