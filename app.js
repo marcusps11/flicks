@@ -38,16 +38,16 @@ app.get("/", function(req, res){
 });
 
 // JWT access control. Important to have these before our routes!
-// app
-//   .use('/api', expressJWT({secret: config.secret})
-//   .unless({path: ['/api/auth/login', '/api/auth/signup']}));
+app
+  .use('/api', expressJWT({secret: config.secret})
+  .unless({path: ['/api/auth/login', '/api/auth/signup']}));
 
-// // Handle "No authorization token was found" errors
-// app.use(function (error, request, response, next) {
-//   if (error.name === 'UnauthorizedError') {
-//     response.status(401).json({message: 'You need an authorization token to view this.'});
-//   }
-// });
+// Handle "No authorization token was found" errors
+app.use(function (error, request, response, next) {
+  if (error.name === 'UnauthorizedError') {
+    response.status(401).json({message: 'You need an authorization token to view this.'});
+  }
+});
 
 app.use(express.static(__dirname + '/public'));
 // Require routes

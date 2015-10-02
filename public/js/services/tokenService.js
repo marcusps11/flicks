@@ -14,11 +14,9 @@ function TokenService($window, jwtHelper) {
 
   self.saveToken = function(token) {
     $window.localStorage['secret'] = token;
-    console.log(token)
   }
 
   self.getToken = function() {
-    console.log(token)
     return $window.localStorage['secret'];
     
   }
