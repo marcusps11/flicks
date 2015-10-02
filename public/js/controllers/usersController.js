@@ -27,7 +27,7 @@ function UsersController(User, TokenService, $state) {
 
   self.login = function() {
     User.login(self.user, function(res){
-      $state.go("homepage/home");
+      $state.go("home");
       showMessage(res)
     });
   }
@@ -37,7 +37,6 @@ function UsersController(User, TokenService, $state) {
   }
 
   self.isLoggedIn = function() {
-    console.log('i am logged in')
     return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
   }
 

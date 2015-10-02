@@ -14,7 +14,7 @@ router.post('/auth/signup', authenticationController.signup);
 // router.route('/bars')
 // .get(BarsController.getBars)
 
-router.route('/search/:search')
+router.route('/:search')
 .get(yelpController.requestYelp)
 
 router.route('/users')
