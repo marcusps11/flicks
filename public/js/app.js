@@ -1,6 +1,6 @@
 angular
 .module('YelpsApp', ['ngResource', 'angular-jwt','ui.router'])
-.constant('API', 'http://localhost:3000/api') 
+.constant('API', 'https://calm-brook-1305.herokuapp.com/api') 
 .config(YelpsInit)
 
 YelpsInit.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider'];

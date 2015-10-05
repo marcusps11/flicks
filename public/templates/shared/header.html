@@ -49,7 +49,7 @@
      <div id="form_body" class="modal-body">
        <form id="login" ng-hide="users.isLoggedIn()" ng-submit="users.login()">
          <label id="form_label" for="email">Email</label>
-         <input id="form_input" type="email" class="form-control" id="email" placeholder="Get" ng-model="users.user.email">
+         <input id="form_input" type="email" class="form-control" id="email" placeholder="email" ng-model="users.user.email">
          <label id="form_label" for="password">Password</label>
          <input id="form_input" type="password" class="form-control" id="password" placeholder="Ready" ng-model="users.user.password">
          <input id="form_submit" type="submit" class="btn btn-primary" value="Submit">
@@ -57,7 +57,7 @@
      </div>
      <div id="form_footer" class="modal-footer text-center" ng-show="users.isLoggedIn()">
        <h5 id="form_welcome" class="modal-title">Welcome Home.</h5>
-       <button id="form_submit" type="button" class="btn btn-primary" data-dismiss="modal">Explore</button>
+       <button id="form_submit" type="button" class="btn btn-primary" data-dismiss="modal">Lets Go</button>
      </div>
    </div>
  </div>
