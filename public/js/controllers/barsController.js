@@ -43,7 +43,7 @@ function BarsController($scope, $http, $state, $stateParams, $window){
     console.log(term, location)
 
     $http
-    .get("https://calm-brook-1305.herokuapp.com/api/&?term="+term+"&location="+location) 
+    .get("http://localhost:3000/api/&?term="+term+"&location="+location) 
     .then(function(response){
 
       console.log(response.data.businesses[0])

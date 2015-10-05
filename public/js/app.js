@@ -1,6 +1,6 @@
 angular
 .module('YelpsApp', ['ngResource', 'angular-jwt','ui.router'])
-.constant('API', 'https://calm-brook-1305.herokuapp.com/api') 
+.constant('API', 'http://localhost:3000/api') 
 .config(YelpsInit)
 
 YelpsInit.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider'];
@@ -21,13 +21,13 @@ function MainRouter($stateProvider, $urlRouterProvider){
     url:'/login',
     templateUrl: './templates/homepage/login.html'
   })
-  .state('homepage',{
+  .state('home',{
     url:'/',
     templateUrl: './templates/homepage/home.html',
   })
   .state('logout',{
     url:'/logout',
-    templateUrl: './templates/homepage/logout.html'
+    templateUrl: './templates/homepage/profile.html'
   })
   .state('search',{
     url:'/search',
@@ -37,10 +37,9 @@ function MainRouter($stateProvider, $urlRouterProvider){
       location: null
     }
   })
-  
   .state('profile',{
     url:'/profile',
-    templateUrl: '../public/templates/homepage/results.html'
+    templateUrl: './templates/homepage/profile.html'
   });
   
   $urlRouterProvider.otherwise('/');

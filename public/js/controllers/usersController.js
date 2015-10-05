@@ -32,6 +32,10 @@ function UsersController(User, TokenService, $state) {
     });
   }
 
+  self.profile = function(){
+    $state.go("profile");
+  }
+
   self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
   }
