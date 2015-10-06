@@ -105,6 +105,7 @@ label{
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     background-position: center;
+    margin-top: 100px;
 
 }
 
@@ -180,6 +181,7 @@ img.images {
 
 #navboot {
   background-color: #5A72A6;
+  margin-bottom: 400px
 }
 
 #navboot ul li:hover a{ 
