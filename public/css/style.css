@@ -178,7 +178,10 @@ img.images {
   margin top:200px;
 }
 
-#pizza {
-
+#navboot {
+  background-color: #5A72A6;
 }
 
+#navboot ul li:hover a{ 
+     color:#FFF;
+}
