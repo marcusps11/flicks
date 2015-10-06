@@ -46,7 +46,6 @@ function BarsController($scope, $http, $state, $stateParams, $window){
     .get("https://calm-brook-1305.herokuapp.com/api/&?term="+term+"&location="+location) 
     .then(function(response){
 
-      console.log(response.data.businesses[0])
 
       angular.forEach(response.data.businesses, function(business, index) {
         business.image_url = business.image_url.replace("ms.jpg", "o.jpg");
